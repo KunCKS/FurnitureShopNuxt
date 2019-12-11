@@ -1,0 +1,21 @@
+.scroll-down-icon {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #ffffff;
+  z-index: 1000;
+  width: 50px;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+  .icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    line-height: 2rem;
+  }
+}

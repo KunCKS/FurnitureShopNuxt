@@ -1,0 +1,99 @@
+// $sidebar-revise-width: 4.5rem;
+// .sidebarPadding-revise {
+//   padding-left: $sidebar-revise-width;
+// }
+.menuBtn {
+  //這邊設定btn位置，其他樣式在_menu-btn.scss
+  position: fixed;
+  left: calc((4.5rem - 24px) / 2);
+  //這邊帶入sidebar寬度及btn寬度來計算左側padding的距離
+  top: 2rem;
+}
+.side-nav {
+  .side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 4.5rem;
+    border-right: 1px solid #e9eaec;
+    z-index: 50;
+    .side-bar-title {
+      white-space: nowrap;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      transition: color 0.5s;
+      font-size: 14px !important;
+    }
+  }
+  .flyout {
+    position: fixed;
+    height: 100%;
+    padding-top: 5.625rem;
+    width: calc(((100% - 4.5rem) / 3) + 4.5rem);
+    min-width: 30rem;
+    max-width: 100%;
+    transform: translateX(-110%);
+    transition: transform 0.5s;
+    z-index: 40;
+    background-color: #ffffff;
+    .flyout-content {
+      padding: 1.875rem 0rem 0rem 8rem;
+      height: 100%;
+      .nav-link {
+        position: relative;
+        //動態底線
+        &:after {
+          display: block;
+          content: '';
+          width: 0;
+          height: 1px;
+          background: #242424;
+          position: absolute;
+          bottom: 0.1875rem;
+          left: 0;
+          transition: all 0.3s ease;
+        }
+        &:hover:after {
+          width: 2.5rem;
+        }
+      }
+      .dropdown-toggle {
+        //選項旁邊的三角形icon
+        &:after {
+          opacity: 0;
+          transform: translateY(-100%);
+          transition: all 0.3s;
+        }
+        &:hover:after {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .flyout-content-footer {
+        transition: all 2s ease;
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 4rem;
+        opacity: 0;
+      }
+    }
+  }
+  &.show {
+    .side-bar {
+      .side-bar-title {
+        color: transparent;
+      }
+    }
+    .flyout {
+      transform: translateX(0);
+      .flyout-content {
+        .flyout-content-footer {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.similar-products-section {
+  position: relative;
+  .next {
+    color: #ffffff;
+    font-size: 2rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    padding: 0 10px;
+    z-index: 100;
+    background-color: rgba(#242424, 0.3);
+    &:hover {
+      background-color: rgba(#242424, 0.5);
+    }
+  }
+  .pre {
+    color: #ffffff;
+    font-size: 2rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    padding: 0 10px;
+    z-index: 100;
+    background-color: rgba(#242424, 0.3);
+    &:hover {
+      background-color: rgba(#242424, 0.5);
+    }
+  }
+  .similar-products-title {
+    position: relative;
+    text-align: center;
+    padding: 2rem 0;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      border-top: 1px solid #000;
+      width: 100%;
+      z-index: -1;
+    }
+    .similar-products-title-content {
+      z-index: 1;
+      background-color: #fff;
+      padding: 0 2rem;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+  }
+  //下面語法讓產出的相關商品不換行而變成一長列，但這邊設置了overflow: hidden來遮蔽超出父元素範圍的商品
+  //後續再利用改變元素位置即可製造移動到下一列商品的效果
+  //位移數據綁定在DOM的style屬性上
+  .similar-products-content {
+    overflow: hidden !important;
+    flex-wrap: nowrap !important;
+    .similar-products {
+      // left: -100%;
+      transition: left 0.7s;
+      // transform: translateX(0);
+      .similar-products-card-img {
+        min-height: 250px;
+      }
+    }
+  }
+}

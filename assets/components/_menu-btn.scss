@@ -1,0 +1,39 @@
+.menuBtn {
+  width: 1.5rem;
+  height: 1.125rem;
+  transition: all 0.5s;
+  z-index: 100;
+  .btnBar {
+    width: 100%;
+    height: 0.125rem;
+    border-radius: 0.25rem;
+    background: #242424;
+    position: absolute;
+    transition: all 0.5s;
+    opacity: 1;
+    //
+    &:nth-child(1) {
+      top: 0;
+    }
+    &:nth-child(2) {
+      top: 0.5rem;
+    }
+    &:nth-child(3) {
+      bottom: 0;
+    }
+  }
+  &.menuBtn-shown {
+    .btnBar {
+      &:nth-child(1) {
+        transform: translateY(0.5rem) rotate(45deg);
+      }
+      &:nth-child(2) {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-0.5rem) rotate(-45deg);
+      }
+    }
+  }
+}

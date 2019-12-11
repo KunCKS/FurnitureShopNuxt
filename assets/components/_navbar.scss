@@ -1,0 +1,126 @@
+$navBar-padding-revise: 1.25rem;
+body.of-hidden {
+  overflow: hidden; //作為購物車顯示時固定頁面不讓滾動
+}
+.cart-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(#fff, 0.7);
+  z-index: 1000;
+  &.show {
+    display: block;
+  }
+}
+.index-navBar {
+  padding-top: $navBar-padding-revise;
+  padding-bottom: $navBar-padding-revise;
+  z-index: 51; //navbar與sidebar有重疊得部分，故設定z-index
+  .nav-link::after {
+    display: none; //取消Bootstrap dropdown 自帶的三角形
+  }
+  //查詢訂單
+  .dropdown-menu {
+    left: -94px;
+    width: 240px;
+    border-color: #e9eaec;
+    &:before {
+      position: absolute;
+      content: "";
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #e9eaec transparent;
+      z-index: 1001;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #ffffff transparent;
+      z-index: 1001;
+    }
+  }
+  //購物車
+  .cart-dropdown-menu {
+    position: absolute;
+    top: 120%;
+    z-index: 1000;
+    display: none;
+    &.show {
+      display: block;
+    }
+    float: left;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    left: -275px;
+    width: 340px;
+    border-color: #e9eaec;
+    &:before {
+      position: absolute;
+      content: "";
+      top: -20px;
+      left: 86%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #e9eaec transparent;
+      z-index: 1001;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      top: -18px;
+      left: 86%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #ffffff transparent;
+      z-index: 1001;
+    }
+    //購物車內容超出一定高度時以捲軸方式呈現
+    .table-scroll {
+      max-height: 30vh;
+      overflow-y: auto;
+    }
+    .cart-title,
+    .cart-unit,
+    .cart-price {
+      font-size: 0.75rem;
+    }
+  }
+}
+.navBar-cart-icon {
+  position: relative;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  .navBar-cart-totalItems {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    font-size: 0.5rem;
+  }
+}

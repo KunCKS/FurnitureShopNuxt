@@ -1,0 +1,62 @@
+.card-designer {
+  .card-head {
+    .img {
+      position: relative;
+      width: 70%;
+      height: 0;
+      padding-bottom: 70%;
+      background-position: center center;
+      background-size: cover;
+      &::before {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        top: 25%;
+        left: -25%;
+        background-color: #242424;
+      }
+      &:after {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 25%;
+        right: 25%;
+        left: -25%;
+        bottom: -25%;
+        background-color: #e9eaec;
+        z-index: -1;
+      }
+    }
+  }
+  .card-body-content {
+    .name {
+      padding-left: 12.5%; //扣掉card-header算出來的
+      padding-right: 17.5%;
+      h4 {
+        font-size: 3rem;
+        font-weight: 500;
+        margin: 0;
+        padding-top: 0.5vw;
+      }
+      span {
+        font-size: 1.5rem;
+        font-weight: normal;
+        letter-spacing: 1rem;
+      }
+    }
+    .content {
+      // margin-top: 7vw;
+      padding-left: 12.5%; //扣掉card-header算出來的
+      padding-right: 17.5%;
+      span {
+        display: inline-block;
+        line-height: 1.7rem;
+      }
+    }
+  }
+}
+//原本利用vw來自適應寬高，但這樣到螢幕寬度較小的顯示器時內容會變得更小
+//所以改以父元素為基準來調整寬高，父元素的寬則是bootstrap的 grid 所控制
+//img 寬高方面， 高是利用padding百分比是依照父元素的寬來計算，所以可以使得寬高以等比例方式自適應

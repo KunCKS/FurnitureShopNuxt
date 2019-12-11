@@ -1,0 +1,24 @@
+@import '~bootstrap/scss/functions';
+@import './helpers/_variables';
+@import '~bootstrap/scss/bootstrap';
+
+@import './components/sidebar';
+@import './components/navbar';
+@import './components/menu-btn';
+@import './components/footer-content';
+@import './components/products-sidebar';
+@import './components/products-card';
+@import './components/dashboard';
+@import './components/news-overlay';
+@import './components/img-wall';
+@import './components/vue-carousel';
+@import './components/scroll-down-icon';
+@import './components/product-page';
+@import './components/coupon';
+@import './components/news-section';
+@import './components/scroll-top';
+@import './components/similar-products';
+@import './components/home-products';
+@import './components/card-designer';
+@import './components/style-intro';
+@import '_utilities.scss';

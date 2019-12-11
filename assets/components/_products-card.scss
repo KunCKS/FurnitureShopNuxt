@@ -1,0 +1,35 @@
+.products-card {
+  .products-card-imgSection {
+    position: relative;
+    overflow: hidden;
+    .products-card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(#242424, 0.6);
+      transition: transform 0.7s;
+      transform: translateY(100%);
+    }
+    .products-card-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      &:hover .products-card-overlay {
+        transform: translateY(0);
+      }
+    }
+    .products-card-img {
+      min-height: 200px;
+      @include media-breakpoint-up(md) {
+        min-height: 250px;
+      }
+      @include media-breakpoint-up(lg) {
+        min-height: 400px;
+      }
+    }
+  }
+}

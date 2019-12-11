@@ -1,0 +1,102 @@
+//左上標題樣式
+.big-title {
+  .name {
+    font-size: 1.5rem;
+    @include media-breakpoint-up(md) {
+      font-size: 1.75rem;
+    }
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .eng {
+    font-size: 1.5rem;
+    @include media-breakpoint-up(md) {
+      font-size: 2rem;
+    }
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+
+.home-products {
+  padding: 6rem 0;
+  .home-products-items {
+    &.negative-margin {
+      margin-top: 0;
+      @include media-breakpoint-up(md) {
+        margin-top: -5rem;
+      }
+    }
+    //當游標hover a連結時，動態呈現邊框且標題的漸層背景色跟著消失
+    & > a {
+      display: block;
+      position: relative;
+      &:hover {
+        .img:after {
+          border: 15px solid rgba(#242424, 0.4);
+        }
+        .text {
+          background: none;
+        }
+      }
+    }
+    .img {
+      height: 18vw;
+      min-height: 150px;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      &:after {
+        content: '';
+        display: block;
+        border: 0px solid rgba(#242424, 0.4);
+        width: 100%;
+        height: 100%;
+        transition: border 0.7s;
+        z-index: 100;
+      }
+    }
+    .home-products-title {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      text-align: end;
+      padding: 5px;
+      @include media-breakpoint-up(md) {
+        padding: 30px 50px;
+      }
+      transform: translateY(100%);
+      opacity: 0;
+      transition: all 1s;
+      &.shown {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      color: #ffffff;
+      background: linear-gradient(
+        rgba(#24242424, 0),
+        rgba(#24242424, 0.8)
+      ); //標題的半透明漸層色
+      .eng {
+        font-weight: 600;
+        font-size: 1.25rem;
+        @include media-breakpoint-up(md) {
+          font-size: 2.25rem;
+        }
+        line-height: 1.2em;
+      }
+      h3 {
+        position: relative;
+        display: inline-block;
+        font-size: 0.75rem;
+        margin: 0;
+        @include media-breakpoint-up(md) {
+          font-size: 1.25rem;
+        }
+        font-weight: normal;
+      }
+    }
+  }
+}

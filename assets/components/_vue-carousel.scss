@@ -1,0 +1,21 @@
+.carousel-img {
+  background-position: center 80%;
+  background-size: cover;
+}
+.carousel-slide-title {
+  vertical-align: bottom;
+  color: #ffffff;
+  height: 300px;
+  @include media-breakpoint-up(md) {
+    height: 90vh;
+  }
+  p {
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+    font-size: 2rem;
+    @include media-breakpoint-up(md) {
+      font-size: 95px;
+    }
+    line-height: 1.2em;
+  }
+}

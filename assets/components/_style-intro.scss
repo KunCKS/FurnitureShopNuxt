@@ -1,0 +1,77 @@
+.style-intro-wrapper {
+  .style-intro-info-body {
+    .style-intro-content {
+      font-size: 1rem;
+      line-height: 2rem;
+      text-align: justify;
+      padding: 0 15%;
+    }
+  }
+  .style-intro-img-body {
+    .img-back {
+      position: relative;
+      width: 70%;
+      height: 0;
+      padding-bottom: 70%; //利用當 height: 0 時，padding-bottom會以父元素寬度為基準計算百分比，這樣就能使高度及寬度依一定比例縮放，這邊將img-section作為父元素來當基準
+      background-position: center 60%;
+      background-size: cover;
+      &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(#242424, 0.7);
+      }
+      &:hover {
+        .img-front.right {
+          transform: translateX(-10%);
+        }
+        .img-front.left {
+          transform: translateX(10%);
+        }
+      }
+      .img-front {
+        position: absolute;
+        top: 15%;
+        width: 80%;
+        height: 0;
+        padding-bottom: 70%; //利用當 height: 0 時，padding-bottom會以父元素寬度為基準計算百分比，這樣就能使高度及寬度依一定比例縮放
+        z-index: 2;
+        background-position: center 60%;
+        background-size: cover;
+        transform: translateX(0);
+        transition: transform 0.8s;
+        //頁面右側為圖片時
+        &.right {
+          left: -10%;
+        }
+        //頁面左側為圖片時
+        &.left {
+          right: -10%;
+        }
+      }
+      .title {
+        position: absolute;
+        top: 15%;
+        z-index: 2;
+        font-size: 3rem;
+        @include media-breakpoint-up(md) {
+          font-size: 4rem;
+        }
+        //頁面右側為圖片時
+        &.right {
+          right: 0;
+          transform: rotate(90deg);
+        }
+        //頁面左側為圖片時
+        &.left {
+          left: 0;
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+}
